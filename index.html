@@ -22,7 +22,7 @@
 </head>
 
 <body>
-	<a href="https://api.whatsapp.com/send?phone=085725091805" class="whatsapp-button"></a>
+	<a href="https://api.whatsapp.com/send?phone=6285725091805" class="whatsapp-button"></a>
 	<style>
 	.whatsapp-button {
 		position: fixed;
@@ -139,7 +139,7 @@
 					<div class="main_title text-left">
 						<h2>About me</h2>
 						<p>
-							Saya adalah siswa Smk Negeri 2 Surakarta yang menyukai bidang programing dan terkhusunya bidang
+							Saya adalah siswa SMK Negeri 2 Surakarta yang menyukai bidang programing dan terkhusunya bidang
 							mobile apps development
 						</p>
 						<p>
@@ -656,23 +656,38 @@
                     </form>
                 </div>
             </div>
-            <div id="map" style="width: 100%; height: 400px;margin-top: 20px;"></div>
+			<div id="map" style="width: 100%; height: 400px; margin-top: 20px;"></div>
 
-            <script>
-                  // Inisialisasi peta
-				  var map = L.map('map').setView([-7.566667, 110.816667], 13);
-            
-			// Tambahkan layer peta menggunakan Leaflet Provider Tiles
-			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-				attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-				maxZoom: 18,
-			}).addTo(map);
-		
-			// Tambahkan penanda di lokasi Surakarta
-			L.marker([-7.566667, 110.816667]).addTo(map)
-				.bindPopup("Surakarta, Indonesia.")
-				.openPopup();	
-            </script>
+			<script>
+				// Inisialisasi peta
+				var map;
+			
+				function initMap() {
+					map = new google.maps.Map(document.getElementById('map'), {
+						center: { lat: -7.566667, lng: 110.816667 },
+						zoom: 13
+					});
+			
+					var marker = new google.maps.Marker({
+						position: { lat: -7.566667, lng: 110.816667 },
+						map: map,
+						title: 'Surakarta, Indonesia.'
+					});
+			
+					var infowindow = new google.maps.InfoWindow({
+						content: 'Surakarta, Indonesia.'
+					});
+			
+					marker.addListener('click', function () {
+						infowindow.open(map, marker);
+					});
+				}
+			</script>
+			
+			<!-- Include the Google Maps JavaScript API -->
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy0PYDQPO4lirZXDboFpm64T46DRIKNCw&callback=initMap" async defer></script>
+			
+			
             
             
              
