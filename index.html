@@ -656,38 +656,29 @@
                     </form>
                 </div>
             </div>
-			<div id="map" style="width: 100%; height: 400px; margin-top: 20px;"></div>
+            <div id="map" style="width: 100%; height: 400px;margin-top: 20px;"></div>
 
 			<script>
-				// Inisialisasi peta
-				var map;
-			
+				// Initialize and add the map
 				function initMap() {
-					map = new google.maps.Map(document.getElementById('map'), {
-						center: { lat: -7.566667, lng: 110.816667 },
-						zoom: 13
-					});
-			
-					var marker = new google.maps.Marker({
-						position: { lat: -7.566667, lng: 110.816667 },
-						map: map,
-						title: 'Surakarta, Indonesia.'
-					});
-			
-					var infowindow = new google.maps.InfoWindow({
-						content: 'Surakarta, Indonesia.'
-					});
-			
-					marker.addListener('click', function () {
-						infowindow.open(map, marker);
-					});
+				  // The location of Surakarta
+				  var surakarta = { lat: -7.566667, lng: 110.816667 };
+				
+				  // The map, centered at Surakarta
+				  var map = new google.maps.Map(document.getElementById("map"), {
+					zoom: 13,
+					center: surakarta,
+				  });
+				
+				  // The marker, positioned at Surakarta
+				  var marker = new google.maps.Marker({
+					position: surakarta,
+					map: map,
+					title: "Surakarta, Indonesia",
+				  });
 				}
-			</script>
-			
-			<!-- Include the Google Maps JavaScript API -->
-			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy0PYDQPO4lirZXDboFpm64T46DRIKNCw&callback=initMap" async defer></script>
-			
-			
+				</script>
+				
             
             
              
@@ -740,7 +731,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/jquery.ajaxchimp.min.js"></script>
 	<script src="js/mail-script.js"></script>
 	<!--gmaps Js-->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy0PYDQPO4lirZXDboFpm64T46DRIKNCw&callback=initMap" async defer></script>
 	<script src="js/gmaps.min.js"></script>
 	<script src="js/theme.js"></script>
 </body>
